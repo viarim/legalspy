@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class TeamFive {
 
-    @RequestMapping(value = { "/teamFive" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/teamFive" }, method = RequestMethod.GET)
 	public String teamFive(
 			Model model,
 			@RequestParam(value = "id", required = false) String id,
@@ -23,7 +23,7 @@ public class TeamFive {
 		model.addAttribute("myId", id);
 		model.addAttribute("myDoc", doc);
 		
-		return "teamFive/teamFive"; // show this VIEW (html): folder/filename.html VIEW
+		return "teamfive/teamFive"; // show this VIEW (html): folder/filename.html VIEW
     }
     
     @RequestMapping(value = { "/teamFive" }, method = RequestMethod.POST)
@@ -34,7 +34,7 @@ public class TeamFive {
     {
     	model.addAttribute("myVariable", "This is my string (in POST mode)");
     	model.addAttribute("postParam", postparam);
-    	return "teamFive/teamFive";
+    	return "teamfive/teamFive";
     }
     
 }
