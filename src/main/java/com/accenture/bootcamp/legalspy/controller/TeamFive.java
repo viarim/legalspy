@@ -23,7 +23,7 @@ public class TeamFive {
 		model.addAttribute("myId", id);
 		model.addAttribute("myDoc", doc);
 		
-		return "teamfive/teamFive"; // show this VIEW (html): folder/filename.html VIEW
+		return "teamFive/teamFive"; // show this VIEW (html): folder/filename.html VIEW
     }
     
     @RequestMapping(value = { "/teamFive" }, method = RequestMethod.POST)
@@ -34,7 +34,7 @@ public class TeamFive {
     {
     	model.addAttribute("myVariable", "This is my string (in POST mode)");
     	model.addAttribute("postParam", postparam);
-    	return "teamfive/teamFive";
+    	return "teamFive/teamFive";
     }
     
 }
