@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+      <meta charset="UTF-8" />
+      <title>Team Five</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+
+<h1>Team FIVE page</h1>
+<h2>Test 1. Value from controller</h2>
+<div>
+	myVariable = <span th:text="${myVariable}"></span>
+</div>
+
+<h2>Test 2. Values from GET parameters</h2>
+<div>
+	<div>ID=<span th:text="${myId}"></span>, DOC=<span th:text="${myDoc}"></span></div>
+	<br/>
+	<div><a href="/teamFive?id=5&doc=aaa">Click link to check</a> (id=5, doc=aaa)</div>
+	<div><a href="/teamFive">Click link to reset</a> (id=, doc=)</div>
+</div>
+
+<h2>Test 3. Value from POST parameter</h2>
+<div>
+	  <form th:action="@{/teamFive}"
+         th:object="${postParamTest}" method="POST">
+         Enter text:<input type="text" name="postparam" /><input type="submit" value="Submit" />
+      </form>
+</div>
+<br />
+<div>Submitted value:<span th:text="${postParam}"></span></div>
+<div><a href="/teamFive">Click link to reset</a></div>
+
+<h2>Test 4. Value from Database</h2>
+<div>
+ToDo: (1) connect to DB, (2) Select some data, (3) Output array of data here. Try to use GET or POST params.
+</div>
+
+<h1>ToDo:</h1>
+<div>
+(1) make this page visible by user with role "Administrator". 
+Error message: You have no permission to access this page.
+</div>
+<br />
+<div>
+(2) If user is not logged, force redirect to Login page.
+<div>
+</body>    
+</html>
