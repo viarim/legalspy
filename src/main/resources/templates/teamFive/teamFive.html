@@ -1,11 +1,4 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-      <meta charset="UTF-8" />
-      <title>Team Five</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-</head>
-<body>
+<div th:replace="fragments/header (pageTitle='')"></div>
 
 <h1>Team FIVE page</h1>
 <h2>Test 1. Value from controller</h2>
@@ -45,6 +38,6 @@ Error message: You have no permission to access this page.
 <br />
 <div>
 (2) If user is not logged, force redirect to Login page.
-<div>
-</body>    
-</html>
+</div>
+
+<div th:replace="fragments/footer"></div>
