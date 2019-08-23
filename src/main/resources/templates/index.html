@@ -1,18 +1,41 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-      <meta charset="UTF-8" />
-      <title>Welcome</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<meta charset="UTF-8" />
+<title>Welcome</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+	
+
 </head>
 <body>
+	<div class="container-fluid">
+		<div class="jumbotron text-center">
+		
+			<h1 class="font-weight-bold">Welcome to our marvellous project!</h1>
+			<p th:utext="${message}"></p>
+		</div>
+	</div>
 
-<h1>Welcome</h1>
-<h2 th:utext="${message}"></h2>          
-<a th:href="@{/personList}">Person List</a>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<h3>Person list</h3>
+				
+				<a th:href="@{/personList}" class="btn btn-outline-success" role="button">Person List</a>
+			<p> Here we have a link to all employee list </p>
+			</div>
+			<div class="col-sm-4">
+				<h3>Team Five</h3>
+					<a th:href="@{/teamFive}" class="btn btn-outline-info" role="button">TEAM FIVE!</a>
+				<p> This is our experimental page. Please click to the link to see the contents </p>
+			</div>
+		</div>
+			</div>
 
-<br/><br/><br/>
-<a th:href="@{/teamFive}">TEAM FIVE!</a>
-           
-</body>    
+</body>
 </html>
