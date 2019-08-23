@@ -1,11 +1,4 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-      <meta charset="UTF-8" />
-      <title>Welcome</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-</head>
-<body>
+<div th:replace="fragments/header (pageTitle='')"></div>
 
 <h1>Welcome</h1>
 <h2 th:utext="${message}"></h2>          
@@ -14,5 +7,4 @@
 <br/><br/><br/>
 <a th:href="@{/teamFive}">TEAM FIVE!</a>
            
-</body>    
-</html>
+<div th:replace="fragments/footer"></div>
