@@ -1,7 +1,7 @@
 <div th:replace="fragments/header (pageTitle='Employee List')"></div>
     
         <div class="container-fluid bg-dark text-center text-white p-4">
-            <h2> Contact List:</h2>
+            <h1> CONTACT LIST</h1>
         </div>
 
     <div class="container-width text-center p-2">
@@ -23,23 +23,23 @@
                     <td class="text-center" th:utext="${person.firstName}">Amin</td>
                     <td class="text-center" th:utext="${person.lastName}">Yashed</td>
                     <td class="text-center">amin.yashed@example.com</td>
-                    <td class="text-center"><a href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button ">Link Button to leave feedback</a></td>
-                	<td class="text-center"><a th:href="@{/#}" class="btn btn-outline-secondary" value="" role="button">Info</a></td>
+                    <td class="text-center"><a th:href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button ">Link Button to leave feedback</a></td>
+                	<td class="text-center"><a th:href="@{/employeeDetails}" class="btn btn-outline-secondary" value="" role="button"><i class="fa fa-fw fa-search"></i>Info</a></td>
                 </tr>
                 <tr>
                     <td class="text-center">Mary</td>
                     <td class="text-center">Moe</td>
                     <td class="text-center">mary@example.com</td>
-                    <td class="text-center">  <a href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button ">Link Button to leave feedback</a></td>
-                     <td class="text-center"><a href="@{/#}" class="btn btn-outline-secondary" role="button">Info</a></td>
+                    <td class="text-center">  <a th:href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button ">Link Button to leave feedback</a></td>
+                     <td class="text-center"><a th:href="@{/employeeDetails}" class="btn btn-outline-secondary" role="button">Info</a></td>
                 
                 </tr>
                 <tr>
                     <td class="text-center">Holly</td>
                     <td class="text-center">Molly</td>
                     <td class="text-center">holly.molly@example.com</td>
-                    <td class="text-center">  <a href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button ">Link Button to leave feedback</a></td>
-               		<td class="text-center"><a href="@{/#}" class="btn btn-outline-secondary" role="button">Info</a></td>
+                    <td class="text-center">  <a th:href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button ">Link Button to leave feedback</a></td>
+               		<td class="text-center"><a th:href="@{/employeeDetails}" class="btn btn-outline-secondary" role="button">Info</a></td>
                		
                 </tr>
             </tbody>

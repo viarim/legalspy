@@ -1,21 +1,21 @@
-<div th:replace="fragments/header (pageTitle='Feedback')"></div>
+<div th:replace="fragments/header (pageTitle='Feedback Form')"></div>
 
 <div class="container-fluid bg-dark text-center text-white p-4">
-        <p> Please provide your feedback in specified areas for <b>Name  Surname:</b></p>
+        <h4> Please provide your feedback in specified areas for <b>Name  Surname:</b></h4>
     </div>
 
     <div class="container">
        
         <br />
         <form action="/action_page.php">
-        <p>1. General work quality:</p>
+        <p><b>1. General work quality:</b></p>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="3">3 - Good<br>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="2">2 - Fair<br>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="1">1 - Poor<br>
                		<br />
-         <p>2. Dependability:</p>
+         <p><b>2. Dependability:</b></p>
                		<input type="radio" class="form-check-input" name="dependability" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="dependability" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="dependability" value="3">3 - Good<br>
@@ -23,7 +23,7 @@
                     <input type="radio" class="form-check-input" name="dependability" value="1">1 - Poor<br>
  					<br />	
    
-        <p>3. Area of knowledge:</p>
+        <p><b>3. Area of knowledge:</b></p>
        				<input type="radio" class="form-check-input" name="area_knowledge" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="area_knowledge" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="area_knowledge" value="3">3 - Good<br>
@@ -31,29 +31,36 @@
                     <input type="radio" class="form-check-input" name="area_knowledge" value="1">1 - Poor<br>
  					<br />	
     
-        <p>4. Communication skills:</p>
+        <p><b>4. Communication skills:</b></p>
      				<input type="radio" class="form-check-input" name="communication_skills" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="communication_skills" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="communication_skills" value="3">3 - Good<br>
                     <input type="radio" class="form-check-input" name="communication_skills" value="2">2 - Fair<br>
                     <input type="radio" class="form-check-input" name="communication_skills" value="1">1 - Poor<br>
  					<br />	
-            <p>5. Management skills:</p>
+        <p><b>5. Management skills:</b></p>
         			<input type="radio" class="form-check-input" name="management_skills" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="management_skills" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="management_skills" value="3">3 - Good<br>
                     <input type="radio" class="form-check-input" name="management_skills" value="2">2 - Fair<br>
                     <input type="radio" class="form-check-input" name="management_skills" value="1">1 - Poor<br>
  					<br />	
-        	<p>6. Contribution:</p>
+        <p><b>6. Contribution:</b></p>
         			<input type="radio" class="form-check-input" name="contribution" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="contribution" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="contribution" value="3">3 - Good<br>
                     <input type="radio" class="form-check-input" name="contribution" value="2">2 - Fair<br>
                     <input type="radio" class="form-check-input" name="contribution" value="1">1 - Poor<br>
  					<br />	
+ 		<p><b>7. Personality:</b></p>
+        			<input type="radio" class="form-check-input" name="personality" value="5" required>5 - Excellent<br>
+                    <input type="radio" class="form-check-input" name="personality" value="4">4 - Very Good<br>
+                    <input type="radio" class="form-check-input" name="personality" value="3">3 - Good<br>
+                    <input type="radio" class="form-check-input" name="personality" value="2">2 - Fair<br>
+                    <input type="radio" class="form-check-input" name="personality" value="1">1 - Poor<br>
+ 					<br />				
         
-        <p>8. Productivity:</p>
+        <p><b>8. Productivity:</b></p>
 					<input type="radio" class="form-check-input" name="productivity" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="productivity" value="4">4 - Very Good<br>
                     <input type="radio" class="form-check-input" name="productivity" value="3">3 - Good<br>
@@ -61,23 +68,25 @@
                     <input type="radio" class="form-check-input" name="productivity" value="1">1 - Poor<br>
  					<br />	
   
-        <p>9. Areas of strength:</p>
+        <p><b>9. Areas of strength:</b></p>
             		<div class="form-group">
-             			  <textarea class="form-control" rows="5" name="strong_points" maxlength="512" ></textarea>
+             			  <textarea class="form-control" rows="5" name="strong_points" maxlength="512" required ></textarea>
            			 </div>
      
-        <p>10. Areas of weakness:</p>
+        <p><b>10. Areas of weakness:</b></p>
          		  	<div class="form-group">
-                  		 <textarea class="form-control" rows="5" name="weak_points" maxlength="512"></textarea>
+                  		 <textarea class="form-control" rows="5" name="weak_points" maxlength="512" required></textarea>
         		    </div>
        
-        <p>11. Additional comment:</p>
+        <p><b>11. Additional comment/compliment which will be provided to your colleague:</b></p>
            			 <div class="form-group">
-              			 <textarea class="form-control" rows="5" name="comment" maxlength="512"></textarea>
+              			 <textarea class="form-control" rows="5" name="comment" maxlength="512" required></textarea>
           			  </div>
       
         <button type="submit" class="btn btn-success btn-lg btn-block">Submit your feedback</button>
 	</form>
+	<br>
+	<br>
     
     </div>
 

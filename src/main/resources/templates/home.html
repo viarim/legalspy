@@ -1,7 +1,7 @@
 <div th:replace="fragments/header (pageTitle='Welcome to Enterprise System')"></div>
     
 <div class="jumbotron bg-dark text-white text-center">
-    <h1 class="font-weight-bold">Welcome to Internal Enterprise System!</h1>
+    <h1 class="font-weight-bold">WELCOME TO INTERNAL ENTERPRISE SYSTEM</h1>
 </div>
 
 <div class="container">
@@ -9,9 +9,9 @@
 
         <div class="col-sm-4 text-center">
             <i class="fas fa-chalkboard-teacher fa-5x"></i>
-            <h3>MY SCORE</h3>
-            <a th:href="@{/feedback}" class="btn btn-secondary" role="button">View my score</a>
-            <p> Check your score  and how your co-workers have rated you </p>
+            <h3>MY LOGBOOK</h3>
+            <a th:href="@{/logbook}" class="btn btn-secondary" role="button">View my logbook</a>
+            <p> Check your scores and see comments what your colleagues have provided </p>
         </div>
 
         <div class="col-sm-4 text-center">
@@ -19,12 +19,14 @@
             <h3>TEAM FIVE</h3>
             <a th:href="@{/teamFive}" class="btn btn-secondary" role="button">OPEN TEAM FIVE!</a>
             <p> This is our experimental page. Please click the link to see the contents </p>
-        </div>
+            <p> Here you can see list of people you have provided feedback </p>
+            <p>table: /Name/Surname/email/status/ where status is - Feedback Submitted!</p>
+      	</div>
 
         <div class="col-sm-4 text-center">
             <i class="fas fa-address-book fa-5x "></i>
             <h3>CONTACT LIST</h3>
-            <a th:href="@{/personList}" class="btn btn-secondary" role="button">Open Contact List</a>
+            <a th:href="@{/employeeList}" class="btn btn-secondary" role="button">Open Contact List</a>
             <p> Here we have a link to all employee list. Click here to rate your co-workers </p>
         </div>
     </div>
