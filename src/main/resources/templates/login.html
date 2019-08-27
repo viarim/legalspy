@@ -1,15 +1,60 @@
-<div th:replace="fragments/header (pageTitle='')"></div>
+<div th:replace="fragments/header (pageTitle='Please log in', navbar=false)"></div>
 
-    <div th:if="${param.error}">
-        Invalid username and password.
-    </div>
-    <div th:if="${param.logout}">
-        You have been logged out.
-    </div>
-    <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
-        
+<div class="container-width">
+	<ul class="nav nav-pills justify-content-end">
+		<li class="nav-item">
+			<a class="nav-link disabled" href="#">For Help - please contact employee support</a>
+		</li>
+	</ul>
+	
+	<div class="jumbotron bg-dark text-white text-center">
+		<h1 class="font-weight-bold">Welcome, guest!</h1>
+	</div>
+</div>
+
+<div class="container-fluid text-center font-weight-light">
+	<p>To continue please Sign In</p>
+</div>
+
+<div th:if="${param.error}">
+	<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+		<div class="alert alert-danger">Invalid username or password</div>
+	</div>
+</div>
+
+<div th:if="${param.logout}">
+	<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+		<div class="alert alert-danger">You have been logged out.</div>
+	</div>
+</div>
+
+<div class="w3-container w3-teal">
+
+	<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+		<div class="card card-signin my-5">
+			<div class="card-body">
+
+				<form th:action="@{/login}" method="post">
+					<div>
+						<label><b> User Name :</b></label> <br> <input
+							class="form-control bg-light" type="text" name="username" />
+					</div>
+					<div>
+						<label><b> Password:</b> </label>
+						<p><input class="form-control bg-light" type="password"
+								name="password" />
+						</p>
+					</div>
+					<div>
+						<input type="submit" value="Sign In"
+							class="btn btn-lg  btn-dark btn-block text-uppercase"
+							role="button" />
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
 <div th:replace="fragments/footer"></div>
