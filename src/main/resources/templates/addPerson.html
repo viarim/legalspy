@@ -1,11 +1,5 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <title>Add Person</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-   </head>
-   <body>
+<div th:replace="fragments/header (pageTitle='')"></div>
+
       <h1>Create a Person:</h1>
        
       <!--  
@@ -34,5 +28,4 @@
          ...
       </div>
        
-   </body>
-</html>
+<div th:replace="fragments/footer"></div>

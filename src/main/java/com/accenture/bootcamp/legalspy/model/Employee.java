@@ -1,5 +1,6 @@
 package com.accenture.bootcamp.legalspy.model;
 
+import java.util.List;
 
 public class Employee {
 
@@ -14,6 +15,7 @@ public class Employee {
 	private String accessLevel;
 	private int roleID;
 	private String role;
+	private List<String> education;
 	
 	
 	public Employee(int id, 
@@ -36,6 +38,16 @@ public class Employee {
 		this.accessLevel = accessLevel;
 		this.roleID = roleID;
 		this.role = role;
+	}
+
+
+	public List<String> getEducation() {
+		return education;
+	}
+
+
+	public void setEducation(List<String> education) {
+		this.education = education;
 	}
 
 
