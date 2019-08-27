@@ -18,7 +18,6 @@ CREATE TABLE `Employees` (
   `password` varchar(32) NOT NULL,
   `fk_access_level` int NOT NULL,
   `fk_role` int NOT NULL,
-  `fk_education` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
@@ -29,7 +28,7 @@ CREATE TABLE `Employees` (
 LOCK TABLES `Employees` WRITE;
 INSERT INTO `Employees` VALUES (1,'Math', 'Ematics', '111111-11111', 'myemail@example.com', 'password', 1, 1, 1),
 							   (2,'Physics', 'Chimics', '222222-22222', 'maymail@exampl.com', 'pass', 2, 2, 2),
-                               (1984,'Big', 'Brother', '123456-98765', 'exmpl@example.com', 'password', 3, 3, 3);
+                               (1984,'Big', 'Brother', '123456-98765', 'exmpl@example.com', 'password', 1, 2, 1);
 UNLOCK TABLES;
 
 
