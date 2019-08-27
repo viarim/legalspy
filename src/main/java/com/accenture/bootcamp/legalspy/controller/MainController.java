@@ -35,7 +35,7 @@ public class MainController {
  
         model.addAttribute("message", message);
  
-        return "index"; //show template index.html
+        return "home"; //show template index.html
     }
  
     @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)

@@ -4,7 +4,27 @@
       <meta charset="UTF-8" />
       <title th:text="${pageTitle}"></title>
       <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
-       <script type="application/javascript" th:src="@{/bootstrap/js/jquery.min.js}"></script>
+      <script type="application/javascript" th:src="@{/bootstrap/js/jquery.min.js}"></script>
       <script type="application/javascript" th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
+
+<div th:if="${navbar != false}">
+
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm bg-light navbar-light">
+		<div class="container-fluid">
+			<ul class="navbar-nav">
+				<li class="navbar nav"><a class="nav-link" th:href="@{/}">Home</a></li>
+			</ul>
+			<ul class="navbar nav">
+				<li class="nav navbar-nav nav-right">
+					<a th:href="@{/logout}" class="btn btn-secondary"
+						type="submit">Sign Out</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</div>
+
+</div>
