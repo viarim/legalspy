@@ -31,7 +31,7 @@ public class MainController {
     private String errorMessage;
  
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String index(Model model) {
+    public String home(Model model) {
  
         model.addAttribute("message", message);
  
