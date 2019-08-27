@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class EmployeeListController {
 	
 	@RequestMapping(value = { "/employeeList" }, method = RequestMethod.GET)
-    public String login(Model model) {
+    public String employeeList(Model model) {
  
         return "employeeList";
         

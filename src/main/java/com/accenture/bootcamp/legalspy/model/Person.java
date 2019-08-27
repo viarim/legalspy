@@ -4,8 +4,11 @@ public class Person {
  
     private String firstName;
     private String lastName;
+
  
-    public Person() {
+
+
+	public Person() {
  
     }
  
@@ -21,7 +24,7 @@ public class Person {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
- 
+
     public String getLastName() {
         return lastName;
     }
