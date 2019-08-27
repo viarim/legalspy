@@ -17,6 +17,26 @@ public class Employee {
 	private String role;
 	private List<String> education;
 	
+	public Employee(int id, 
+					String name, 
+					String surname,
+					String personCode,
+					String email,
+					String password,
+					int accessLevelID,
+					int roleID) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.personCode = personCode;
+		this.email = email;
+		this.password = password;
+		this.accessLevelID = accessLevelID;
+		this.accessLevel = null;
+		this.roleID = roleID;
+		this.role = null;
+		}
+	
 	
 	public Employee(int id, 
 					String name, 
@@ -152,9 +172,21 @@ public class Employee {
 
 
 	public String toString() {
-		return "Employee: \nid: " + id + ",\n name: " + name + ",\n surname: " + surname + ",\n personCode: " + personCode
+		
+		String result = "Employee: \nid: " + id + ",\n name: " + name + ",\n surname: " + surname + ",\n personCode: " + personCode
 				+ ",\n email: " + email + ",\n password: " + password + ",\n accessLevelID: " + accessLevelID + ",\n accessLevel: "
 				+ accessLevel + ",\n roleID: " + roleID + ",\n role: " + role;
+		
+		if (education != null) {
+			
+			for(String s : education) {
+				result += "\n Education: " + s;
+			}
+			
+		}
+		
+		
+		return result;
 	}
 	
 	

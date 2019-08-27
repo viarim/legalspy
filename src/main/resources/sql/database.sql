@@ -26,9 +26,9 @@ CREATE TABLE `Employees` (
 --
 
 LOCK TABLES `Employees` WRITE;
-INSERT INTO `Employees` VALUES (1,'Math', 'Ematics', '111111-11111', 'myemail@example.com', 'password', 1, 1, 1),
-							   (2,'Physics', 'Chimics', '222222-22222', 'maymail@exampl.com', 'pass', 2, 2, 2),
-                               (1984,'Big', 'Brother', '123456-98765', 'exmpl@example.com', 'password', 1, 2, 1);
+INSERT INTO `Employees` VALUES (1,'Math', 'Ematics', '111111-11111', 'myemail@example.com', 'password', 1, 1),
+							   (2,'Physics', 'Chimics', '222222-22222', 'maymail@exampl.com', 'pass', 2, 2),
+                               (1984,'Big', 'Brother', '123456-98765', 'exmpl@example.com', 'password', 1, 2);
 UNLOCK TABLES;
 
 
@@ -118,7 +118,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `Employee_comments`;
 CREATE TABLE `Employee_comments` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `fk_employee_to` int NOT NULL,
+  `fk_employee_feedback_to` int NOT NULL,
   `fk_employee_from` int NOT NULL,
   `date` datetime NOT NULL,
   `comment` varchar(512) NOT NULL,
@@ -130,8 +130,8 @@ CREATE TABLE `Employee_comments` (
 --
 
 LOCK TABLES `Employee_comments` WRITE;
-INSERT INTO `Employee_comments` VALUES (null, 1, 2, now(), 'first'),
-									   (null, 2, 1, now(), 'second');
+INSERT INTO `Employee_comments` VALUES (null, 10, 2, now(), 'first'),
+									   (null, 11, 1, now(), 'second');
 UNLOCK TABLES;
 
 

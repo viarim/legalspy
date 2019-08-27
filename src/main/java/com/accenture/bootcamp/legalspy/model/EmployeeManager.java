@@ -10,7 +10,6 @@ import java.util.List;
 
 import com.accenture.bootcamp.legalspy.model.Employee;
 
-
 public class EmployeeManager {
 
 	
@@ -177,6 +176,58 @@ public class EmployeeManager {
 	}
 	
 	
+	public boolean updateEmployee(Employee employee) throws SQLException {
+		boolean status = false;
+		
+		try {
+			this.createConnection();
+			conn.setAutoCommit(false);
+			PreparedStatement pstmt = conn.prepareStatement("update internal_enterprise_system.Employees "
+					+ "set name = ?, surname = ?, person_code = ?, email = ?, password = ?, fk_access_level = ?, fk_role = ? "
+					+ "where id= ?");
+			pstmt.setString(1, employee.getName());
+			pstmt.setString(2, employee.getSurname());
+			pstmt.setString(3, employee.getPersonCode());
+			pstmt.setString(4, employee.getEmail());
+			pstmt.setString(5, employee.getPassword());
+			pstmt.setInt(6, employee.getAccessLevelID());
+			pstmt.setInt(7, employee.getRoleID());
+			pstmt.setInt(8, employee.getId());
+			int result = pstmt.executeUpdate();
+			conn.commit();
+			if (result > 0) status = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+			this.closeConnecion();
+		}
+		return status;
+	}
+	
+	
+	public boolean deleteEmployee(int id) throws SQLException {
+		boolean result = false;
+		
+		try {
+			this.createConnection();
+			conn.setAutoCommit(false);
+			PreparedStatement pstmt = conn.prepareStatement("delete from internal_enterprise_system.Employees where id = ?");
+			pstmt.setInt(1, id);
+			int rs = pstmt.executeUpdate();
+			if (rs > 0) result = true;
+			conn.commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+			this.closeConnecion();
+		}
+		return result;
+	}
+	
 	public void closeConnecion() {
 		try {
 			conn.close();
@@ -188,9 +239,33 @@ public class EmployeeManager {
 	public static void main(String args[]) throws SQLException {
 		
 		EmployeeManager e = new EmployeeManager();
-		//e.findEmployee(1);
+		e.findEmployee(1);
+		
+		Employee employee = new Employee(0, "testname", "testsurname", "testpersonCode", "testemail", "testpassword", 1, "testaccessLevel", 1, "testrole");
+		if (e.insertEmployee(employee)) {
+			System.out.println("SUCCESS");
+		} else {
+			System.out.println("FAILED");
+		}
 		e.findEmployees();
-		//Employee employee = new Employee(id, name, surname, personCode, email, password, accessLevelID, accessLevel, roleID, role)
+		
+		System.out.println("__________________________________________________________");
+		int id = employee.getId();
+		employee = new Employee(1985, "test", "test", "test", "test", "test", 1, "test", 1, "test");
+		if (e.updateEmployee(employee)) {
+			System.out.println("SUCCESS");
+		} else {
+			System.out.println("FAILED");
+		}
+		e.findEmployees();
+		
+		System.out.println("__________________________________________________________");
+		if (e.deleteEmployee(1985)) {
+			System.out.println("SUCCESS");
+		} else {
+			System.out.println("FAILED");
+		}
+		e.findEmployees();
 	}
 	
 }
