@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="UTF-8" />
+<title>Login</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: grey;
+        color: white;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+   <!---  <div th:if="${param.error}">Invalid username and password.</div>
+    <div th:if="${param.logout}">You have been logged out.</div> --->
+
+
+    <div class="container-width">
+
+        <ul class="nav nav-pills justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">For Help - please contact employee support</a>
+            </li>
+        </ul>
+
+
+        <div class="jumbotron bg-dark text-white text-center">
+
+            <h1 class="font-weight-bold">Welcome, guest!</h1>
+
+        </div>
+    </div>
+    <div class="container-fluid text-center font-weight-light">
+        <p> To continue please Sign In </p>
+    </div>
+
+
+
+    <div class="w3-container w3-teal">
+
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+
+                    <form th:action="@{/login}" method="post">
+
+
+                        <div>
+                            <label><b> User Name :</b></label>
+                            <br>
+                            <input class="form-control bg-light" type="text" name="username" />
+
+                        </div>
+
+
+
+                        <div>
+                            <label><b> Password:</b> </label>
+                            <p>
+
+                                <input class="form-control bg-light" type="password" name="password" />
+
+                        </div>
+
+                        <div>
+                            <input type="submit" value="Sign In"
+                                   class="btn btn-lg  btn-dark btn-block text-uppercase" role="button" />
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" style="margin-bottom:0">
+        <br />
+        <br />
+    </div>
+</body>
+</html>
