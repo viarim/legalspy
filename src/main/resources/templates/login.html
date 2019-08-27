@@ -1,49 +1,15 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="https://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-<title>Login</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-</head>
+<div th:replace="fragments/header (pageTitle='')"></div>
 
-
-<body>
-	<div th:if="${param.error}">Invalid username and password.</div>
-	<div th:if="${param.logout}">You have been logged out.</div>
-	
-	<div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <h5 class="card-title text-center">Sign In</h5>
-	<form th:action="@{/login}" method="post">
-
-
-		<div>
-			<label> User Name : <input type="text" name="username" />
-			</label>
-		</div>
-
-
-
-		<div>
-			<label> Password: <input type="password" name="password" />
-			</label>
-		</div>
-
-		<div>
-			<input type="submit" value="Sign In"
-				class="btn btn-lg btn-primary btn-block text-uppercase"
-				role="button" />
-		</div>
-
-	</form>
-</div></div></div></div></div>
-
-</body>
-</html>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+        
+<div th:replace="fragments/footer"></div>

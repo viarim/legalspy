@@ -1,26 +1,4 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head>
-<meta charset="UTF-8" />
-<title>Welcome</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-	
-
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="jumbotron text-center">
-		
-			<h1 class="font-weight-bold">Welcome to our marvellous project!</h1>
-			<p th:utext="${message}"></p>
-		</div>
-	</div>
-
+<div th:replace="fragments/header (pageTitle='')"></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
@@ -36,6 +14,7 @@
 			</div>
 		</div>
 			</div>
-
-</body>
-</html>
+<br/><br/><br/>
+<a th:href="@{/teamFive}">TEAM FIVE!</a>
+           
+<div th:replace="fragments/footer"></div>
