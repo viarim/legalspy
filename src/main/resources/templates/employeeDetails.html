@@ -1,37 +1,61 @@
 <div th:replace="fragments/header (pageTitle='Employee Details')"></div>
 
-		<div class="container-fluid bg-dark text-center text-white p-4">
-            <h4>VIEW DETAILS FOR <span th:text="${surname}"></span>&nbsp;<span th:text="${name}"></span></h4>
-        </div>
-
-
-
-<div class="container">
+<div class="container-fluid bg-dark text-center text-white p-4">
+    <h4>VIEW DETAILS FOR <span th:text="${surname}"></span>&nbsp;<span th:text="${name}"></span></h4>
+</div>
 <br />
-<div class="row">
-    <div class="col-sm-2">
-    <a th:href="@{'/updateEmployee?id=' + ${id}}" type="button" class="btn btn-success" role="button">Update</a>
-    </div>
-    <div class="col-sm-10">
-    <a th:href="@{/deleteEmployee}"type="button" class="btn btn-danger" role="button">Delete</a>
-     <span class="border-bottom" color="color-dark"></span>
-    </div>
+<div class="container">	
+	<div class="row">
+	    <div class="p-2 col-sm-2">
+	    <a th:href="@{'/updateEmployee?id=' + ${id}}" type="button" class="btn btn-success" role="button">Update</a>
+	    </div>
+	    <div class="p-2 col-sm-10">
+	    <a th:href="@{/deleteEmployee}"type="button" class="btn btn-danger" role="button">Delete</a>
+	     <span class="border-bottom" color="color-dark"></span>
+	    </div>
+	</div>
+	<br />	
+	
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">ID:</div>
+	  <div class="p-2 col-4"><span th:text="${id}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Name:</div>
+	  <div class="p-2 col-4"><span th:text="${name}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Surname:</div>
+	  <div class="p-2 col-4"><span th:text="${surname}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Person code:</div>
+	  <div class="p-2 col-4"><span th:text="${surname}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Email</div>
+	  <div class="p-2 col-4"><span th:text="${email}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Access Level ID:</div>
+	  <div class="p-2 col-4"><span th:text="${accessLevelID}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Access Level:</div>
+	  <div class="p-2 col-4"><span th:text="${accessLevel}"></div>
+	</div> 
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Role ID:</div>
+	  <div class="p-2 col-4"><span th:text="${roleID}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Role:</div>
+	  <div class="p-2 col-4"><span th:text="${role}"></div>
+	</div>
+	<div class="row">
+	  <div class="p-2 col-2 font-weight-bold">Education:</div>
+	  <div class="p-2 col-4"><span th:text="${education}"></div>
+	</div>
 
-
-  </div>
-
- <br>
- <p> <b>ID:</b> <span th:text="${id}"> </p> <br>
- <p><b> Name:</b>  <span th:text="${name}"> </p> <br>
- <p><b> Surname:</b> <span th:text="${surname}"> </p> <br>
- <p><b> Person code:</b> <span th:text="${personCode}"> </p> <br>
- <p><b> Email:</b><span th:text="${email}"> </p> <br>
- <p><b> Access Level ID:</b> <span th:text="${accessLevelID}"> </p> <br>
- <p><b> Access Level:</b> <span th:text="${accessLevel}"></p> <br>
- <p><b> Role ID:</b> <span th:text="${roleID}"> </p> <br>
- <p><b> Role:</b> <span th:text="${role}"> </p> <br>
- <p><b> Education:</b> <span th:text="${education}"> </p> <br>
- <br>
-
-  </div>
+</div>
 <div th:replace="fragments/footer"></div>
