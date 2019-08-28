@@ -18,7 +18,10 @@ import com.accenture.bootcamp.legalspy.model.EmployeeManager;
 public class UpdateEmployee {
 
 	@RequestMapping(value = { "/updateEmployee" }, method = RequestMethod.GET)
-		public String updateEmployee(Model model, @RequestParam(value = "id", required = false) String id) throws SQLException {
+	public String updateEmployee(
+		Model model, 
+		@RequestParam(value = "id", required = true) String id) 
+		throws SQLException {
 			EmployeeManager e = new EmployeeManager();
 			Employee emp = e.findEmployee(Integer.parseInt(id));
 			model.addAttribute("id", emp.getId());
@@ -30,9 +33,19 @@ public class UpdateEmployee {
 			model.addAttribute("accessLevel", emp.getAccessLevel());
 			model.addAttribute("roleID", emp.getRoleID());
 			model.addAttribute("role", emp.getRole());
-			model.addAttribute("education", emp.getEducationString());
-			
-			
-		return "updateEmployee";
+			model.addAttribute("education", emp.getEducationString());			
+			return "updateEmployee";
 	}
+	
+	@RequestMapping(value = { "/updateEmployee" }, method = RequestMethod.POST)
+	public String doUpdateEmployee(
+		Model model, 
+		@RequestParam(value = "id", required = true) String id)
+	{
+		// ToDo update employee in DB
+		
+				
+		return "redirect:/updateEmployee?id=" + id;
+	}
+
 }
