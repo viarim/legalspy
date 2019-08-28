@@ -21,7 +21,6 @@ public class UpdateEmployee {
 		public String updateEmployee(Model model, @RequestParam(value = "id", required = false) String id) throws SQLException {
 			EmployeeManager e = new EmployeeManager();
 			Employee emp = e.findEmployee(Integer.parseInt(id));
-			
 			model.addAttribute("id", emp.getId());
 			model.addAttribute("name", emp.getName());
 			model.addAttribute("surname", emp.getSurname());
