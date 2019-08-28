@@ -64,6 +64,16 @@ public class Employee {
 	public List<String> getEducation() {
 		return education;
 	}
+	
+	public String getEducationString() {
+		String e = "";
+		for (String s : education) {
+			
+			e += "- " + s + "\n";
+			
+		}
+		return e;
+	}
 
 
 	public void setEducation(List<String> education) {

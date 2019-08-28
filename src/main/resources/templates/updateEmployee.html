@@ -1,0 +1,31 @@
+<div th:replace="fragments/header (pageTitle='Employee Details')"></div>
+
+<div class="container-fluid bg-dark text-center text-white p-4">
+	<h4>
+		UPDATE <span th:text="${surname}"></span>&nbsp;<span th:text="${name}"></span>:
+	</h4>
+</div>
+
+
+<div class="container">
+	<br />
+
+	<form action="/action_page.php">
+		<b>ID:</b> <input type="text" name="id" th:value="${id}"></input><br><br>
+		<b>First name:</b> <input type="text" name="name" th:value="${name}"><br><br>
+		<b>Surname:</b> <input type="text" name="surname" th:value="${surname}"><br><br>
+		<b>Person code:</b> <input type="text" name="personCode" th:value="${personCode}"><br><br>
+		<b>Email:</b> <input type="text" name="email" th:value="${email}"><br><br>
+		<b>Access Level ID:</b> <input type="text" name="accessLevelID" value="${accessLevelID}"><br><br>
+		<b>Access Level:</b> <input type="text" name="accessLevel" value="${accessLevel}"><br><br>
+		<b>Role ID:</b> <input type="text" name="roleID" value="${roleID}"><br><br>
+		<b>Role:</b> <input type="text" name="role" value="${role}"><br><br>
+		<b>Education:</b> <input type="text" name="education" value="${education}"><br><br>
+
+
+		<input type="submit" class="btn btn-success" role="button" value="UPDATE">
+	</form>
+<br><br>
+</div>
+
+<div th:replace="fragments/footer"></div>

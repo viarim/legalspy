@@ -20,6 +20,8 @@
             </thead>
             <tbody>
             
+       <a th:href="@{'/employeeDetails?id=' + ${employee.id}}" class="btn btn-outline-secondary" role="button">Info</a>     
+            
                 <tr th:each="employee : ${employees}">
                     <td class="text-center" th:utext="${employee.name}"></td>
                     <td class="text-center" th:utext="${employee.surname}"></td>
@@ -32,3 +34,4 @@
                     </div>
                     
  <div th:replace="fragments/footer"></div>
+     
