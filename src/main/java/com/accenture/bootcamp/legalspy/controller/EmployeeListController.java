@@ -29,6 +29,11 @@ public class EmployeeListController {
 
 	}
 
-	
+
+	@RequestMapping(value = { "/feedbackForm" }, method = RequestMethod.GET)
+	public String feedbackForm(Model model) {
+
+		return "feedbackForm";
+	}
 	
 }
