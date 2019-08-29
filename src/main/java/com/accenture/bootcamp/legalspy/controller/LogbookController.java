@@ -39,14 +39,19 @@ public class LogbookController {
 		float score = 0;
 		
 		EmployeeFeedbackManager efm = new EmployeeFeedbackManager();
-		List<EmployeeFeedback> efList = efm.findEmployeeFeedbacks(1);
+		List<EmployeeFeedback> efList = efm.findEmployeeFeedbacks(userId);
        	for (EmployeeFeedback employeeFeedback : efList) {
        		score += employeeFeedback.getRateAreaKnowledge() + employeeFeedback.getRateCommunicationSkills() +
        				 employeeFeedback.getRateContribution() + employeeFeedback.getRateDependability() +
        				 employeeFeedback.getRateManagementSkills() + employeeFeedback.getRatePersonality() +
        				 employeeFeedback.getRateProductivity() + employeeFeedback.getRateWorkQuality();	
        	}
-        score = score / (8 * efList.size());
+       	 
+       	for (EmployeeFeedback scrs : efList) {
+       		
+       		score += scrs.getRateAreaKnowledge();
+       		
+       	}
 		model.addAttribute("score", score);
 		
 		return "logbook";
