@@ -1,13 +1,16 @@
 <div th:replace="fragments/header (pageTitle='Feedback Form')"></div>
 
 <div class="container-fluid bg-dark text-center text-white p-4">
-        <h4> Please provide your feedback in specified areas for <span th:text="${surname}"></span>&nbsp;<span th:text="${name}"></span></h4>
+        <h4> Please provide your feedback in specified areas for <span th:text="${employee.surname}"></span>&nbsp;<span th:text="${employee.name}"></span></h4>
     </div>
 
     <div class="container">
        
         <br />
-        <form action="/action_page.php">
+        <form th:action="@{/feedbackForm}" method="post">
+	        <input type="hidden" name="userFrom" th:value="${loggedUserId}" />
+	        <input type="hidden" name="userTo" th:value="${employee.id}" />
+
         <p><b>1. General work quality:</b></p>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="5" required>5 - Excellent<br>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="4">4 - Very Good<br>
