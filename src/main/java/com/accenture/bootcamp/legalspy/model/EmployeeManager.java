@@ -263,39 +263,4 @@ public class EmployeeManager {
 		} catch (SQLException e) {	} 
 		conn = null;
 	}
-	
-	
-	public static void main(String args[]) throws SQLException {
-		
-		EmployeeManager e = new EmployeeManager();
-		e.findEmployee(1);
-		
-		Employee employee = new Employee(0, "testname", "testsurname", "testpersonCode", "testemail", "testpassword", 1, "testaccessLevel", 1, "testrole");
-		if (e.insertEmployee(employee)) {
-			System.out.println("SUCCESS");
-		} else {
-			System.out.println("FAILED");
-		}
-		e.findEmployees();
-		
-		System.out.println("__________________________________________________________");
-		int id = employee.getId();
-		employee = new Employee(1985, "test", "test", "test", "test", "test", 1, "test", 1, "test");
-		if (e.updateEmployee(employee)) {
-			System.out.println("SUCCESS");
-		} else {
-			System.out.println("FAILED");
-		}
-		e.findEmployees();
-		
-		System.out.println("__________________________________________________________");
-		if (e.deleteEmployee(1985)) {
-			System.out.println("SUCCESS");
-		} else {
-			System.out.println("FAILED");
-		}
-		e.findEmployees();
-		
-	}
-	
 }
