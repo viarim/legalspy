@@ -20,10 +20,8 @@
 	</div>
 
 	<form th:action="@{/updateEmployee}" method="post">	
-		<div class="row">
-		  <div class="p-2 col-2 font-weight-bold">ID:</div>
-		  <div class="p-2 col-4"><input class="form-control form-control-plaintext" type="text" name="id" th:value="${id}" readonly /></div>
-		</div>
+		<input type="hidden" name="id" th:value="${id}">
+		<input type="hidden" name="password" th:value="${password}">
 		<div class="row">
 		  <div class="p-2 col-2 font-weight-bold">Name:</div>
 		  <div class="p-2 col-4"><input class="form-control" type="text" name="name" th:value="${name}" /></div>
@@ -38,27 +36,45 @@
 		</div>
 		<div class="row">
 		  <div class="p-2 col-2 font-weight-bold">Email</div>
-		  <div class="p-2 col-4"><input class="form-control" type="text" name="email" th:value="${email}" /></div>
+		  <div class="p-2 col-4"><input class="form-control" type="email" name="email" th:value="${email}" /></div>
 		</div>
+		
+		
+        
+
 		<div class="row">
-		  <div class="p-2 col-2 font-weight-bold">Access Level ID:</div>
-		  <div class="p-2 col-4"><input class="form-control" type="text" name="accessLevelID" th:value="${accessLevelID}" /></div>
+		 <div class="p-2 col-2 font-weight-bold">Access Level: </div>
+        <div class="p-2 col-2 font-weight-bold">
+	        <select name="accessLevel" required>
+	        	<option th:each="lvl : ${accessLevels}"
+	                            th:value="${lvl.accessLevelID}"
+	                            th:utext="${lvl.accessLevel}"
+	                            th:selected="${lvl.accessLevelID.equals(accessLevelID)}" />
+				
+			</select> 
 		</div>
-		<div class="row">
-		  <div class="p-2 col-2 font-weight-bold">Access Level:</div>
-		  <div class="p-2 col-4"><input class="form-control" type="text" name="accessLevel" th:value="${accessLevel}" /></div>
 		</div> 
+
 		<div class="row">
-		  <div class="p-2 col-2 font-weight-bold">Role ID:</div>
-		  <div class="p-2 col-4"><input class="form-control" type="text" name="roleID" th:value="${roleID}" /></div>
-		</div>
-		<div class="row">
-		  <div class="p-2 col-2 font-weight-bold">Role:</div>
-		  <div class="p-2 col-4"><input class="form-control" type="text" name="role" th:value="${role}" /></div>
+		  <div class="p-2 col-2 font-weight-bold">Role: </div>
+        	<div class="p-2 col-2 font-weight-bold">
+	        	<select name="role" required>
+		        	<option selected="selected" disabled>select role</option>
+		        	<option th:each="role : ${roles}"
+		                            th:value="${role.roleID}"
+		                            th:utext="${role.roleName}"
+		                            th:selected="${role.roleID.equals(roleID)}" />
+				</select> 
+			</div>
 		</div>
 		<div class="row">
 		  <div class="p-2 col-2 font-weight-bold">Education:</div>
-		  <div class="p-2 col-4"><input class="form-control" type="text" name="education" th:value="${education}"></div>
+		  <div class="p-2 col-4"><div class="p-2 col-4"><span th:text="${education}"></div></div>
+		</div>
+		<div class="row">
+		  	<a th:href="@{/addEducation}" class="btn btn-secondary" value="" role="button" style="margin-left:10px;">Add education</a>
+		  	<t>
+		  	<a th:href="@{/changePassword}" class="btn btn-secondary" value="" role="button" style="margin-left:10px;">Change password</a>
 		</div>
 		<br />
 		<div class="row">

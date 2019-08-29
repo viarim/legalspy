@@ -10,18 +10,33 @@
 <div class="container">
 	<br />
 
-	 <form th:action="@{/addEmployee}" th:object="Employee" method="post">
+	 <form th:action="@{/addEmployee}"  method="post">
 
-        <b>ID:</b> <input type="text" name="id" th:field="*{id}" ></input><br><br>
-        <b>First name:</b> <input type="text" name="name" th:field="*{name}"><br><br>
-        <b>Surname:</b> <input type="text" name="surname" th:field="*{surname}"><br><br>
-        <b>Person code:</b> <input type="text" name="personCode" th:field="*{personCode}"><br><br>
-        <b>Email:</b> <input type="text" name="email" th:field="*{email}"><br><br>
-        <b>Password:</b> <input type="text" name="password" th:field="*{password}"><br><br>
-        <b>Access Level ID:</b> <input type="text" name="accessLevelID" th:field="*{accessLevelID}"><br><br>
-        <b>Access Level:</b> <input type="text" name="accessLevel" th:field="*{accessLevel}"><br><br>
-        <b>Role ID:</b> <input type="text" name="roleID" th:field="*{roleID}"><br><br>
-        <b>Role:</b> <input type="text" name="role" th:field="*{role}"><br><br>
+       
+        <b>First name:</b> <input type="text" name="name" required><br><br>
+        <b>Surname:</b> <input type="text" name="surname" required><br><br>
+        <b>Person code:</b> <input type="text" name="personCode" required><br><br>
+        <b>Email:</b> <input type="email" name="email" required><br><br>
+        <b>Password:</b> <input type="password" name="password" required><br><br>
+        <b>Repeat password:</b> <input type="password" name="rPassword" required><br><br>
+        <b>Access Level: </b>
+        <select name="accessLevel" required>
+        	<option selected="selected" disabled>select access level</option>
+        	<option th:each="lvl : ${accessLevels}"
+                            th:value="${lvl.accessLevelID}"
+                            th:utext="${lvl.accessLevel}"/>
+        	
+		</select> 
+		
+		<br><br>
+        <b>Role: </b>
+        <select name="role" required>
+        	<option selected="selected" disabled>select role</option>
+        	<option th:each="role : ${roles}"
+                            th:value="${role.roleID}"
+                            th:utext="${role.roleName}"/>
+		</select> 
+		<br><br>
         
       <!--    <b>Education:</b> <input type="text" name="education" th:field="*{education}"><br><br> -->
 
