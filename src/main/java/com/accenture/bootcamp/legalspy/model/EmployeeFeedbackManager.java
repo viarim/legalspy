@@ -161,6 +161,69 @@ public class EmployeeFeedbackManager {
 		return employeeFeedbacks;
 	}
 	
+	/**
+	 *  functionality for "completedForms"
+	 */
+	public List<EmployeeFeedback> findEmployeeFeedbacksFrom(int id) throws SQLException {
+		
+		List<EmployeeFeedback> employeeFeedbacks = new ArrayList<EmployeeFeedback>();
+		EmployeeFeedback employeeFeedback = null;
+		
+		try {
+			
+			this.createConnection();
+			conn.setAutoCommit(false);
+			
+			PreparedStatement pstmt = conn.prepareStatement(
+					"select f.*, e.name, e.surname from internal_enterprise_system.Employee_feedbacks AS f,"
+					+ " internal_enterprise_system.Employees as e"
+					+ " where e.id=f.fk_employee_from"
+					+ " and f.fk_employee_from = ?"
+					);
+			
+			pstmt.setInt(1, id);
+			ResultSet rs = pstmt.executeQuery();
+			
+			conn.commit();
+			
+			while (rs.next()) {
+				employeeFeedback = new EmployeeFeedback(rs.getInt("id"), 
+						rs.getInt("fk_employee_to"),
+						rs.getInt("fk_employee_from"),
+						rs.getInt("fk_project"),
+						rs.getString("date"),
+						rs.getInt("general_work_quality"),
+						rs.getInt("dependability"),
+						rs.getInt("area_knowledge"),
+						rs.getInt("communication_skills"),
+						rs.getInt("personality"),
+						rs.getInt("management_skills"),
+						rs.getInt("contribution"),
+						rs.getInt("productivity"),
+						rs.getString("strong_points"),
+						rs.getString("weak_points"),
+						rs.getString("comment"),
+						rs.getString("name"),
+						rs.getString("surname")
+						);				
+				
+				employeeFeedbacks.add(employeeFeedback);
+			}
+			
+		} catch (Exception e) {
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+			this.closeConnecion();
+		}
+		
+		// TO BE REMOVED
+		for(EmployeeFeedback e : employeeFeedbacks) {
+			System.out.println(e);
+		}
+		return employeeFeedbacks;
+	}
+	
 	
 	public boolean insertEmployeeFeedback(EmployeeFeedback employeeFeedback) throws SQLException {
 		
