@@ -10,6 +10,7 @@
         <form th:action="@{/feedbackForm}" method="post">
 	        <input type="hidden" name="userFrom" th:value="${loggedUserId}" />
 	        <input type="hidden" name="userTo" th:value="${employee.id}" />
+	         <input type="hidden" name="projectTo" th:value="1" />
 
         <p><b>1. General work quality:</b></p>
                     <input type="radio" class="form-check-input" name="general_work_quality" value="5" required>5 - Excellent<br>
