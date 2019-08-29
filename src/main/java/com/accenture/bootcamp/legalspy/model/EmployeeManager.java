@@ -187,8 +187,8 @@ public class EmployeeManager {
 			pstmt.setString(2, employee.getName());
 			pstmt.setString(3, employee.getSurname());
 			pstmt.setString(4, employee.getPersonCode());
-			pstmt.setString(5, employee.getPassword());
-			pstmt.setString(6, employee.getEmail());
+			pstmt.setString(5, employee.getEmail());
+			pstmt.setString(6, employee.getPassword());
 			pstmt.setInt(7, employee.getAccessLevelID());
 			pstmt.setInt(8, employee.getRoleID());
 			int rs = pstmt.executeUpdate();
