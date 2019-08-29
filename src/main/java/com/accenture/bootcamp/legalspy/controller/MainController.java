@@ -1,6 +1,7 @@
 package com.accenture.bootcamp.legalspy.controller;
 
 import com.accenture.bootcamp.legalspy.form.PersonForm;
+import com.accenture.bootcamp.legalspy.model.EmployeeManager;
 import com.accenture.bootcamp.legalspy.model.Person;
 
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,24 +36,25 @@ public class MainController {
     private String errorMessage;
  
     @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
-    public String home(Model model) {
- 
-        model.addAttribute("message", message);
- /*
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (principal instanceof UserDetails) {
-	        String username = ((UserDetails)principal).getUsername();
-	        model.addAttribute("username", username);
-        } else {
-	        String username = principal.toString();
-	        model.addAttribute("username", username);
-        }       
-  */     
+    public String home(Model model) throws SQLException { 
+       
+    	model.addAttribute("message", message);
+        model.addAttribute("loggedUserId", getIdByEmail()); 
         
         return "home"; //show template index.html
     }
  
-    @RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
+    /**
+     * This method return user ID  by given email. We need to translate this, because 
+     * email is used as a login name for the user. 
+     * User ID then is used to retrieve data for particular user within this application.
+     */
+    public static int getIdByEmail() throws SQLException {
+    	EmployeeManager em = new EmployeeManager();
+		return Integer.parseInt(em.getIdByEmail(SecurityContextHolder.getContext().getAuthentication().getName()));
+	}
+
+	@RequestMapping(value = { "/personList" }, method = RequestMethod.GET)
     public String personList(Model model) {
  
         model.addAttribute("persons", persons);
