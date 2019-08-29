@@ -6,10 +6,9 @@
 <head>
 	<meta charset="UTF-8" />
 	<title th:text="${pageTitle}"></title>
-	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>	
 	
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	
+	<script type="application/javascript" th:src="@{/bootstrap/js/fa_kit.js}"></script>
 	<script type="application/javascript" th:src="@{/bootstrap/js/jquery.min.js}"></script>
 	<script type="application/javascript" th:src="@{/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
@@ -24,6 +23,9 @@
 				<li class="navbar nav"><a class="nav-link" th:href="@{/}">Home</a></li>
 				<li class="navbar nav"><a class="nav-link" th:href="@{/logbook}">My Logbook</a></li>
 				<li class="navbar nav"><a class="nav-link" th:href="@{/employeeList}">Contact List</a></li>
+				<div sec:authorize="hasRole('Manager')">
+					<li class="navbar nav"><a class="nav-link text-success" href="#"><strong>Admin menu</strong></a></li>
+				</div>
 			</ul>
 			<ul class="navbar nav">
 				<li class="nav navbar-nav nav-right">					
