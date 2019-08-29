@@ -24,7 +24,7 @@
                     <td class="text-center" th:utext="${employee.name}"></td>
                     <td class="text-center" th:utext="${employee.surname}"></td>
                     <td class="text-center" th:utext="${employee.email}"></td>
-                    <td class="text-center"><a th:href="@{/feedbackForm}" class="btn btn-outline-secondary" role="button">Link Button to leave feedback</a></td>
+                    <td class="text-center"><a th:href="@{'/feedbackForm?id=' + ${employee.id}}" class="btn btn-outline-secondary" role="button">Link Button to leave feedback</a></td>
                     <td class="text-center"><a th:href="@{'/employeeDetails?id=' + ${employee.id}}" class="btn btn-outline-secondary" role="button">Info</a></td>    
                     </tr>
                     </tbody>
