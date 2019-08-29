@@ -46,7 +46,7 @@ public class LogbookController {
        				 employeeFeedback.getRateManagementSkills() + employeeFeedback.getRatePersonality() +
        				 employeeFeedback.getRateProductivity() + employeeFeedback.getRateWorkQuality();	
        	}
-       	//score = score / (8 * efList.size());
+        score = score / (8 * efList.size());
 		model.addAttribute("score", score);
 		
 		return "logbook";
