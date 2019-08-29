@@ -29,7 +29,8 @@
 				<li class="nav navbar-nav nav-right">					
  					<div sec:authorize="isAuthenticated()">
  						Welcome! Username: <strong><span sec:authentication="name"></span></strong>&nbsp;&nbsp; 						
-						Roles: <strong><span sec:authentication="principal.authorities"></span></strong>&nbsp;&nbsp;											
+						Roles: <strong><span sec:authentication="principal.authorities"></span></strong>&nbsp;&nbsp;
+						ID: <strong><span th:text="${loggedUserId}"></span></strong>&nbsp;&nbsp;											
  					</div>
 				</li>
 				<li class="nav navbar-nav nav-right">

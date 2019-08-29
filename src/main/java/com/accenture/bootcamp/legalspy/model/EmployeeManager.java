@@ -99,9 +99,9 @@ public class EmployeeManager {
 	}
 	
 	
-	public String login(String email) throws SQLException {
+	public String getIdByEmail(String email) throws SQLException {
 
-		String password = "";
+		String id = "";
 		try {
 			this.createConnection();
 			conn.setAutoCommit(false);
@@ -113,7 +113,7 @@ public class EmployeeManager {
 			
 			if (rs.next()) {
 				
-				password = rs.getString("password");
+				id = rs.getString("id");
 			}
 
 		} catch (Exception e) {
@@ -124,7 +124,7 @@ public class EmployeeManager {
 			this.closeConnecion();
 		}
 		
-		return password;
+		return id;
 	}
 	
 	
@@ -296,8 +296,6 @@ public class EmployeeManager {
 		}
 		e.findEmployees();
 		
-
-		System.out.println(e.login("exmpl@example.com"));
 	}
 	
 }
