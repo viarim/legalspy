@@ -23,22 +23,16 @@ public class FeedbackController {
 @RequestMapping(value = { "/feedbackForm" }, method = RequestMethod.GET)
 //public String feedbackForm(Model model) {
 	public String feedbackForm(Model model, @RequestParam(value = "id", required = false) String id) throws SQLException {
+	
 	EmployeeManager e = new EmployeeManager();
 	Employee emp = e.findEmployee(Integer.parseInt(id));
-	model.addAttribute("id", emp.getId());
-	model.addAttribute("name", emp.getName());
-	model.addAttribute("surname", emp.getSurname());
-	model.addAttribute("personCode", emp.getPersonCode());
-	model.addAttribute("email", emp.getEmail());
-	model.addAttribute("accessLevelID", emp.getAccessLevelID());
-	model.addAttribute("accessLevel", emp.getAccessLevel());
-	model.addAttribute("roleID", emp.getRoleID());
-	model.addAttribute("role", emp.getRole());
-	model.addAttribute("education", emp.getEducationString());
+	
+	model.addAttribute("employee", emp);
+	
 	return "feedbackForm";
 }}
 
-
+ 
 
 //	
 //	 @RequestMapping(value = { "/feedbackForm" }, method = RequestMethod.POST)
