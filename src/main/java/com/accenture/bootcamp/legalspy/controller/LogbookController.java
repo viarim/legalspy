@@ -1,5 +1,7 @@
 package com.accenture.bootcamp.legalspy.controller;
 
+import java.sql.SQLException;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class LogbookController {
 
 	@RequestMapping(value = { "/logbook" }, method = RequestMethod.GET)
-	public String logbook(Model model) {
-
+	public String logbook(Model model) throws SQLException {
+		
+		int userId = MainController.getIdByEmail();
+		model.addAttribute("loggedUserId", userId); 
+		
 		return "logbook";
 	}
 }
