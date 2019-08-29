@@ -21,6 +21,8 @@ public class EmployeeFeedback {
 	private String weakPoint;
 	private String comment;
 	private List<String> comments;
+	private String employeeFromName;
+	private String employeeFromSurname;
 	
 	
 	public EmployeeFeedback(int id, int employeeToID, int employeeFromID, int projectID, String dateTime,
@@ -47,15 +49,38 @@ public class EmployeeFeedback {
 		this.comments = null;
 	}
 	
+	public EmployeeFeedback(int id, int employeeToID, int employeeFromID, int projectID, String dateTime,
+			int rateWorkQuality, int rateDependability, int rateAreaKnowledge, int rateCommunicationSkills,
+			int ratePersonality, int rateManagementSkills, int rateContribution, int rateProductivity,
+			String strongPoints, String weakPoint, String comment, String employeeFromName, String employeeFromSurname) {
+		super();
+		this.id = id;
+		this.employeeToID = employeeToID;
+		this.employeeFromID = employeeFromID;
+		this.projectID = projectID;
+		this.dateTime = dateTime;
+		this.rateWorkQuality = rateWorkQuality;
+		this.rateDependability = rateDependability;
+		this.rateAreaKnowledge = rateAreaKnowledge;
+		this.rateCommunicationSkills = rateCommunicationSkills;
+		this.ratePersonality = ratePersonality;
+		this.rateManagementSkills = rateManagementSkills;
+		this.rateContribution = rateContribution;
+		this.rateProductivity = rateProductivity;
+		this.strongPoints = strongPoints;
+		this.weakPoint = weakPoint;
+		this.comment = comment;
+		this.comments = null;
+		this.employeeFromName = employeeFromName;
+		this.employeeFromSurname = employeeFromSurname;
+	}
+	
 	public List<String> getComments() {
 		return comments;
 	}
 	public void setComments(List<String> comments) {
 		this.comments = comments;
-	}
-
-
-	
+	}	
 	
 	public int getId() {
 		return id;
@@ -153,6 +178,19 @@ public class EmployeeFeedback {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	
+	public String getEmployeeFromName() {
+		return employeeFromName;
+	}
+	public void setEmployeeFromName(String employeeFromName) {
+		this.employeeFromName = employeeFromName;
+	}
+	public String getEmployeeFromSurname() {
+		return employeeFromSurname;
+	}
+	public void setEmployeeFromSurname(String employeeFromSurname) {
+		this.employeeFromSurname = employeeFromSurname;
+	}
 
 
 	public String toString() {
@@ -162,7 +200,9 @@ public class EmployeeFeedback {
 				+ ",\n rateCommunicationSkills: " + rateCommunicationSkills + ",\n ratePersonality: " + ratePersonality
 				+ ",\n rateManagementSkills: " + rateManagementSkills + ",\n rateContribution: " + rateContribution
 				+ ",\n rateProductivity: " + rateProductivity + ",\n strongPoints: " + strongPoints + ",\n weakPoint: "
-				+ weakPoint + ",\n comment: " + comment;
+				+ weakPoint + ",\n comment: " + comment
+				+ ",\n employeeFromName: " 	+ employeeFromName + ",\n employeeFromSurname: " + employeeFromSurname
+				;
 	}
 	
 }
