@@ -177,7 +177,7 @@ public class EmployeeFeedbackManager {
 			PreparedStatement pstmt = conn.prepareStatement(
 					"select f.*, e.name, e.surname from internal_enterprise_system.Employee_feedbacks AS f,"
 					+ " internal_enterprise_system.Employees as e"
-					+ " where e.id=f.fk_employee_from"
+					+ " where e.id=f.fk_employee_to"
 					+ " and f.fk_employee_from = ?"
 					);
 			

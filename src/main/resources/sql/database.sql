@@ -110,8 +110,11 @@ CREATE TABLE `Employee_feedbacks` (
 --
 
 LOCK TABLES `Employee_feedbacks` WRITE;
-INSERT INTO `Employee_feedbacks` VALUES (null, 2, 1, 1, NOW(), 3, 3, 3, 3, 3, 3, 3, 4, 'three', 'three', 'three'),
-										(null, 1, 2, 1, NOW(), 4, 4, 4, 4, 4, 4, 4, 4, 'four', 'four', 'four');
+INSERT INTO `Employee_feedbacks` VALUES 
+(null, 2, 1, 1, NOW(), 3, 3, 3, 3, 3, 3, 3, 4, 'three', 'three', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words'),
+(null, 2, 1, 1, NOW(), 3, 3, 3, 3, 3, 3, 3, 4, 'three', 'three', 'To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?'),
+(null, 1, 2, 1, NOW(), 2, 3, 4, 5, 4, 3, 2, 1, 'four', 'four', 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.'),
+(null, 1, 2, 1, NOW(), 3, 3, 2, 2, 2, 2, 1, 1, 'four', 'four', 'Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).');
 UNLOCK TABLES;
 
 

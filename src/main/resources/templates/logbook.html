@@ -1,20 +1,20 @@
 <div th:replace="fragments/header (pageTitle='My Logbook')"></div>
 
-    <div class="container-fluid bg-dark text-center text-white p-4">
-        <h1></p> MY LOGBOOK</h1>
-    </div>
+<div class="container-fluid bg-dark text-center text-white p-4">
+    <h1>MY LOGBOOK</h1>
+</div>
 <br />
 <br />
 
 <div class="container text-center">
-<i class="fas fa-star fa-5x"></i>
-  <h4><b>MY SCORE</b></h4>
-  <h2><strong><span th:text="${score}"></span></strong></h2>
+	<i class="fas fa-star fa-5x"></i>
+	<h4><b>MY SCORE</b></h4>
+	<h2><span th:text="${score}"></span></h2>
 </div>
 
 <div class="container">
-<h4>Check the feedback!</h4>
-<p> My colleagues have provided such feedbacks for me:</p>
+	<h4>Check the feedback!</h4>
+	<p> My colleagues have provided such feedbacks for me:</p>
 </div>
 
 <div th:each="fb : ${fbs}">
@@ -25,7 +25,5 @@
 	<br />
 	<br />
 </div>
-
-
 
 <div th:replace="fragments/footer"></div>
