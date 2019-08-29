@@ -38,46 +38,33 @@ public class AddEmployeeController {
 	}
 	
 
-@RequestMapping(value = { "/addEmployee" }, method = RequestMethod.POST)
-public String addEmployee(Model model,
-		@RequestParam(value = "name", required = false) String name,
-		@RequestParam(value = "surname", required = false) String surname,
-		@RequestParam(value = "personCode", required = false) String personCode,
-		@RequestParam(value = "email", required = false) String email,
-		@RequestParam(value = "password", required = false) String password,
-		@RequestParam(value = "rPassword", required = false) String rPassword,
-		@RequestParam(value = "accessLevel", required = false) String accessLevel,
-		@RequestParam(value = "role", required = false) String role) throws SQLException {
-
+	@RequestMapping(value = { "/addEmployee" }, method = RequestMethod.POST)
+	public String addEmployee(Model model,
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "surname", required = false) String surname,
+			@RequestParam(value = "personCode", required = false) String personCode,
+			@RequestParam(value = "email", required = false) String email,
+			@RequestParam(value = "password", required = false) String password,
+			@RequestParam(value = "rPassword", required = false) String rPassword,
+			@RequestParam(value = "accessLevel", required = false) String accessLevel,
+			@RequestParam(value = "role", required = false) String role) throws SQLException {
 	
-	
-	
-	EmployeeManager e = new EmployeeManager();
-	Employee emp = new Employee(0, name, surname, personCode, email, password, 
-					Integer.parseInt(accessLevel), Integer.parseInt(role));
-	
-	System.out.println(emp);
-	System.out.println(rPassword);
-	
-	if (password.equals(rPassword)) {
-		e.insertEmployee(emp);
-		return "redirect:/employeeList";
-	} else {
-		return "redirect:/addEmployee";
-	}
-	
-	
-	
-	
-     
-
-
-//        if (firstName != null && firstName.length() > 0 //
-//                && lastName != null && lastName.length() > 0) {
-//            Employee newEmployee = new Employee(id, name,surname,personCode,email,accessLevelID,accessLevel,roleID, role);
-//            (persons)employees.add(newEmployee);
- 
-            
+		
+		
+		
+		EmployeeManager e = new EmployeeManager();
+		Employee emp = new Employee(0, name, surname, personCode, email, password, 
+						Integer.parseInt(accessLevel), Integer.parseInt(role));
+		
+		System.out.println(emp);
+		System.out.println(rPassword);
+		
+		if (password.equals(rPassword)) {
+			e.insertEmployee(emp);
+			return "redirect:/employeeList";
+		} else {
+			return "redirect:/addEmployee";
+		}        
 	}
 	
 }
