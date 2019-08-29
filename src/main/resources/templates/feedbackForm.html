@@ -1,7 +1,7 @@
 <div th:replace="fragments/header (pageTitle='Feedback Form')"></div>
 
 <div class="container-fluid bg-dark text-center text-white p-4">
-        <h4> Please provide your feedback in specified areas for <b>Name  Surname:</b></h4>
+        <h4> Please provide your feedback in specified areas for <span th:text="${surname}"></span>&nbsp;<span th:text="${name}"></span></h4>
     </div>
 
     <div class="container">
