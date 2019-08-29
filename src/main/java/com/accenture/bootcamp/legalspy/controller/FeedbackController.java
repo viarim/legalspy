@@ -26,9 +26,11 @@ public class FeedbackController {
 	
 	EmployeeManager e = new EmployeeManager();
 	Employee emp = e.findEmployee(Integer.parseInt(id));
-	
 	model.addAttribute("employee", emp);
 	
+	int userId = MainController.getIdByEmail();
+	model.addAttribute("loggedUserId", userId);
+
 	return "feedbackForm";
 }}
 
