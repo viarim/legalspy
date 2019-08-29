@@ -10,16 +10,10 @@ import java.util.List;
 
 public class EmployeeFeedbackManager {
 
-	
-
-	
 	protected Connection conn;
 
-
-	public EmployeeFeedbackManager() {
-		
+	public EmployeeFeedbackManager() {		
 		conn = null;
-
 	}
 	
 	public void createConnection() throws SQLException {
@@ -117,10 +111,16 @@ public class EmployeeFeedbackManager {
 			this.createConnection();
 			conn.setAutoCommit(false);
 			
-			PreparedStatement pstmt = conn.prepareStatement("select * from internal_enterprise_system.Employee_feedbacks "
-					+ " where internal_enterprise_system.Employee_feedbacks.fk_employee_to = ?");
+			PreparedStatement pstmt = conn.prepareStatement(
+					"select f.*, e.name, e.surname from internal_enterprise_system.Employee_feedbacks AS f,"
+					+ " internal_enterprise_system.Employees as e"
+					+ " where e.id=f.fk_employee_from"
+					+ " and f.fk_employee_to = ?"
+					);
+			
 			pstmt.setInt(1, id);
 			ResultSet rs = pstmt.executeQuery();
+			
 			conn.commit();
 			
 			while (rs.next()) {
@@ -139,8 +139,10 @@ public class EmployeeFeedbackManager {
 						rs.getInt("productivity"),
 						rs.getString("strong_points"),
 						rs.getString("weak_points"),
-						rs.getString("comment"));
-				
+						rs.getString("comment"),
+						rs.getString("name"),
+						rs.getString("surname")
+						);				
 				
 				employeeFeedbacks.add(employeeFeedback);
 			}
