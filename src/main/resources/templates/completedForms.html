@@ -1,0 +1,32 @@
+<div th:replace="fragments/header (pageTitle='Completed Forms')"></div>
+
+<div class="container-fluid bg-dark text-center text-white p-4">
+	<h1>COMPLETED FORMS</h1>
+</div>
+
+<div class="container-width">
+	<table class="table">
+		<thead class="thead-light text-center">
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
+			<th>Status</th>
+
+		</thead>
+		<tbody>
+			<tr th:each="person : ${persons}">
+				<td class="text-center">Amin</td>
+				<td class="text-center">Yashed</td>
+				<td class="text-center">amin.yashed@example.com</td>
+				<td class="text-center"><button type="button"
+						class="btn btn-success">Feedback Submitted!</button></td>
+
+
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+<div th:replace="fragments/footer"></div>

@@ -1,0 +1,73 @@
+<div th:replace="fragments/header (pageTitle='Employee Details')"></div>
+
+<div class="container-fluid bg-dark text-center text-white p-4">
+	<h4>
+		UPDATE <span th:text="${surname}"></span>&nbsp;<span th:text="${name}"></span>:
+	</h4>
+</div>
+
+<br />
+
+<div class="container">
+
+	<div th:if="${success == true}">
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Done!</strong> Employee has been updated.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+
+	<form th:action="@{/updateEmployee}" method="post">	
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">ID:</div>
+		  <div class="p-2 col-4"><input class="form-control form-control-plaintext" type="text" name="id" th:value="${id}" readonly /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Name:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="name" th:value="${name}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Surname:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="surname" th:value="${surname}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Person code:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="personCode" th:value="${personCode}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Email</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="email" th:value="${email}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Access Level ID:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="accessLevelID" th:value="${accessLevelID}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Access Level:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="accessLevel" th:value="${accessLevel}" /></div>
+		</div> 
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Role ID:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="roleID" th:value="${roleID}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Role:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="role" th:value="${role}" /></div>
+		</div>
+		<div class="row">
+		  <div class="p-2 col-2 font-weight-bold">Education:</div>
+		  <div class="p-2 col-4"><input class="form-control" type="text" name="education" th:value="${education}"></div>
+		</div>
+		<br />
+		<div class="row">
+			<div class="p-2 col-6 text-center font-weight-bold">
+				<input class="form-control btn btn-success" type="submit" role="button" value="UPDATE">
+			</div>
+		</div>			
+	</form>
+<br><br>
+</div>
+
+<div th:replace="fragments/footer"></div>

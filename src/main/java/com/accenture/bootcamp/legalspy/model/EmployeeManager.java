@@ -99,6 +99,35 @@ public class EmployeeManager {
 	}
 	
 	
+	public String login(String email) throws SQLException {
+
+		String password = "";
+		try {
+			this.createConnection();
+			conn.setAutoCommit(false);
+			PreparedStatement pstmt = conn.prepareStatement("select id, name, surname, fk_access_level, password from internal_enterprise_system.Employees "
+					+ " where internal_enterprise_system.Employees.email = ?");
+			pstmt.setString(1, email);
+			ResultSet rs = pstmt.executeQuery();
+			conn.commit();
+			
+			if (rs.next()) {
+				
+				password = rs.getString("password");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			conn.rollback();
+		} finally {
+			conn.setAutoCommit(true);
+			this.closeConnecion();
+		}
+		
+		return password;
+	}
+	
+	
 	
 	public List<Employee> findEmployees() throws SQLException {
 		
@@ -266,6 +295,9 @@ public class EmployeeManager {
 			System.out.println("FAILED");
 		}
 		e.findEmployees();
+		
+
+		System.out.println(e.login("exmpl@example.com"));
 	}
 	
 }

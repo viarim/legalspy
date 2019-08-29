@@ -5,7 +5,7 @@
         </div>
 
     <div class="container-width text-center p-2">
-      <a th:href="@{/addEmployee}" class="btn btn-secondary" value="" role="button">Add new person</a>
+      <a th:href="@{/addPerson}" class="btn btn-secondary" value="" role="button">Add new person</a>
       
     </div>
     
@@ -20,6 +20,8 @@
             </thead>
             <tbody>
             
+       <a th:href="@{'/employeeDetails?id=' + ${employee.id}}" class="btn btn-outline-secondary" role="button">Info</a>     
+            
                 <tr th:each="employee : ${employees}">
                     <td class="text-center" th:utext="${employee.name}"></td>
                     <td class="text-center" th:utext="${employee.surname}"></td>
@@ -32,3 +34,4 @@
                     </div>
                     
  <div th:replace="fragments/footer"></div>
+     
